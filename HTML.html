@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #password {
+            width: 80%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Random Password Generator</h2>
+        <input type="number" id="length" placeholder="Enter password length" min="4" max="30">
+        <button onclick="generatePassword()">Generate</button>
+        <br>
+        <input type="text" id="password" readonly>
+        <button onclick="copyPassword()">Copy</button>
+    </div>
+
+    <script>
+        function generatePassword() {
+            const length = document.getElementById("length").value;
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+            let password = "";
+            
+            if (length < 4 || length > 30) {
+                alert("Please enter a length between 4 and 30.");
+                return;
+            }
+
+            for (let i = 0; i < length; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+
+            document.getElementById("password").value = password;
+        }
+
+        function copyPassword() {
+            const passwordField = document.getElementById("password");
+            passwordField.select();
+            document.execCommand("copy");
+            alert("Password copied to clipboard!");
+        }
+    </script>
+
+</body>
+</html>
