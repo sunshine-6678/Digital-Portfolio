@@ -1,0 +1,46 @@
+Here is the HTML and CSS code without the JavaScript:
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #password {
+            width: 80%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Random Password Generator</h2>
+        <input type="number" id="length" placeholder="Enter password length" min="4" max="30">
+        <button onclick="generatePassword()">Generate</button>
+        <br>
+        <input type="text" id="password" readonly>
+        <button onclick="copyPassword()">Copy</button>
+    </div>
+</body>
+</html>
+```
